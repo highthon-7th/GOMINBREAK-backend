@@ -10,6 +10,7 @@ import com.example.gominbreakbackend.global.exception.PostNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -21,8 +22,8 @@ public class PostService {
 
     public void createPost(PostRequest request){
         postRepository.save(Post.builder()
+                        .content(request.getContent())
                         .title(request.getTitle())
-                        .content(request.getContents())
                         .member(MemberFacade.getMember())
                         .build());
     }
