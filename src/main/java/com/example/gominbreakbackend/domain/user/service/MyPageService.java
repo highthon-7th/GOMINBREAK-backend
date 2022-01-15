@@ -1,10 +1,12 @@
 package com.example.gominbreakbackend.domain.user.service;
 
+import com.example.gominbreakbackend.domain.comment.domain.repository.CommentRepository;
 import com.example.gominbreakbackend.domain.post.domain.repository.PostRepository;
 import com.example.gominbreakbackend.domain.user.domain.repository.MemberRepository;
 import com.example.gominbreakbackend.domain.user.facade.MemberFacade;
 import com.example.gominbreakbackend.domain.user.presentation.dto.response.MemberInfoResponse;
 import com.example.gominbreakbackend.domain.user.presentation.dto.response.MyPageResponse;
+import com.example.gominbreakbackend.global.exception.CommentNotFoundException;
 import com.example.gominbreakbackend.global.exception.UserNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -37,7 +39,7 @@ public class MyPageService {
                 .map(member -> {
                     MemberInfoResponse response = MemberInfoResponse.builder()
                             .name(member.getName())
-                            .commentCounts(member.)
+                            .commentCounts(memberRepository.countByCommentCounts(MemberFacade.getMemberId()))
                             .symCounts(member.getSymCounts())
                             .schoolName(member.getSchool())
                             .build();
