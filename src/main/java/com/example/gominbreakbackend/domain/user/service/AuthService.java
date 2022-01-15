@@ -35,7 +35,6 @@ public class AuthService {
                         .username(request.getUsername())
                         .password(passwordEncoder.encode(request.getPassword()))
                         .name(request.getName())
-                        .everyLikeCounts(0)
                         .school(request.getSchool())
                         .role(Role.ROLE_STUDENT)
                         .build());
