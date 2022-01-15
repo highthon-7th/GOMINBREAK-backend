@@ -1,6 +1,9 @@
 package com.example.gominbreakbackend.domain.post.service;
 
+import com.example.gominbreakbackend.domain.comment.domain.Comment;
 import com.example.gominbreakbackend.domain.comment.domain.repository.CommentRepository;
+import com.example.gominbreakbackend.domain.comment.presentation.dto.request.CommentRequest;
+import com.example.gominbreakbackend.domain.comment.presentation.dto.response.CommentResponse;
 import com.example.gominbreakbackend.domain.post.domain.Post;
 import com.example.gominbreakbackend.domain.post.domain.repository.PostRepository;
 import com.example.gominbreakbackend.domain.post.presentation.dto.request.PostRequest;
@@ -53,11 +56,12 @@ public class PostService {
                             .commentContents(commentRepository.findByPostId(id)
                                     .stream()
                                     .map(comment -> {
-                                        comment.getId();
-                                        comment.getMember().getName();
-                                    return comment;
-                                    }).collect(Collectors.toList())
-                            )
+                                        CommentResponse commentResponse = CommentResponse.builder()
+                                                .id(comment.getId())
+                                                .writer(comment.getMember().getName())
+                                                .build();
+                                        return commentResponse;
+                                    }).collect(Collectors.toList()))
                             .build();
                     return postDetailsResponse;
                 })
