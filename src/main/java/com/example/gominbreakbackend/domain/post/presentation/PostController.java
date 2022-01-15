@@ -7,6 +7,7 @@ import com.example.gominbreakbackend.domain.post.service.PostService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -17,7 +18,7 @@ public class PostController {
     private final PostService postService;
 
     @PostMapping("")
-    public void createPost(PostRequest request){
+    public void createPost(@RequestBody @Valid PostRequest request){
         postService.createPost(request);
     }
 
