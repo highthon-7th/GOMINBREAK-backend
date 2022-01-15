@@ -19,7 +19,10 @@ public enum ErrorCode {
     MEMBER_USERNAME_ALREADY_EXISTS(409, "Member Already Exists"),
     INVALID_PASSWORD(401, "Invalid Password"),
 
-    POST_NOT_FOUND(404, "Post Not Found");
+    COMMENT_NOT_FOUND(404, "Comment Not Found"),
+    POST_NOT_FOUND(404, "Post Not Found"),
+    AUTHENTICATION_NOT_FOUND(403, "Authentication Not Found"),
+    SYM_ALREADY_EXISTS(409, "SymAlreadyExistsException");
 
     private final int status;
     private final String message;
