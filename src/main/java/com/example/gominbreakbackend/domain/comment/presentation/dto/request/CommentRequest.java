@@ -1,4 +1,4 @@
-package com.example.gominbreakbackend.domain.comment.presentation.dto;
+package com.example.gominbreakbackend.domain.comment.presentation.dto.request;
 
 import lombok.Builder;
 import lombok.Getter;

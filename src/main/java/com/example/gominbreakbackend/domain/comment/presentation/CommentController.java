@@ -1,6 +1,6 @@
 package com.example.gominbreakbackend.domain.comment.presentation;
 
-import com.example.gominbreakbackend.domain.comment.presentation.dto.CommentRequest;
+import com.example.gominbreakbackend.domain.comment.presentation.dto.request.CommentRequest;
 import com.example.gominbreakbackend.domain.comment.service.CommentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;

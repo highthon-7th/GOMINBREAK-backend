@@ -2,7 +2,7 @@ package com.example.gominbreakbackend.domain.comment.service;
 
 import com.example.gominbreakbackend.domain.comment.domain.Comment;
 import com.example.gominbreakbackend.domain.comment.domain.repository.CommentRepository;
-import com.example.gominbreakbackend.domain.comment.presentation.dto.CommentRequest;
+import com.example.gominbreakbackend.domain.comment.presentation.dto.request.CommentRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
