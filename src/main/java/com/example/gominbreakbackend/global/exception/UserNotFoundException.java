@@ -9,6 +9,6 @@ public class UserNotFoundException extends GominException {
             new UserNotFoundException();
 
     private UserNotFoundException(){
-        super(ErrorCode.USER_NOT_FOUND);
+        super(ErrorCode.MEMBER_NOT_FOUND);
     }
 }

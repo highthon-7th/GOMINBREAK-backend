@@ -9,6 +9,6 @@ public class UserIdAlreadyExistsException extends GominException {
             new UserIdAlreadyExistsException();
 
     private UserIdAlreadyExistsException(){
-        super(ErrorCode.USER_ID_ALREADY_EXISTS);
+        super(ErrorCode.MEMBER_ID_ALREADY_EXISTS);
     }
 }
