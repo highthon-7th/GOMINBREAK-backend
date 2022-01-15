@@ -9,6 +9,7 @@ import lombok.Getter;
 @Builder
 public class MyPageResponse {
 
+    private Integer id;
     private String title;
     private String content;
 }
