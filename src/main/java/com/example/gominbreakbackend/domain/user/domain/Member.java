@@ -36,6 +36,7 @@ public class Member implements UserDetails {
     private Role role;
 
     private Integer symCounts;
+    private Integer commentCounts;
 
     public Member addSymCounts(){
         this.symCounts++;
