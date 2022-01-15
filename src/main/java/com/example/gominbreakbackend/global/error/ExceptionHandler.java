@@ -1,7 +1,6 @@
 package com.example.gominbreakbackend.global.error;
 
-import com.example.gominbreakbackend.global.error.ErrorResponse;
-import com.example.gominbreakbackend.global.error.exception.GominBreakException;
+import com.example.gominbreakbackend.global.error.exception.GominException;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
@@ -20,7 +19,7 @@ public class ExceptionHandler extends OncePerRequestFilter {
                                     FilterChain chain) throws ServletException, IOException {
         try{
             chain.doFilter(request, response);
-        } catch (GominBreakException e){
+        } catch (GominException e){
             ErrorResponse errorResponse = new ErrorResponse(e.getErrorCode().getMessage());
 
             response.setStatus(e.getErrorCode().getStatus());

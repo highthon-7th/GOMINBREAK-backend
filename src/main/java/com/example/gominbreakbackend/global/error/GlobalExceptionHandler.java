@@ -1,6 +1,6 @@
 package com.example.gominbreakbackend.global.error;
 
-import com.example.gominbreakbackend.global.error.exception.GominBreakException;
+import com.example.gominbreakbackend.global.error.exception.GominException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
-    @ExceptionHandler(GominBreakException.class)
-    public ResponseEntity<ErrorResponse> handleException(GominBreakException e){
+    @ExceptionHandler(GominException.class)
+    public ResponseEntity<ErrorResponse> handleException(GominException e){
         final ErrorCode errorCode = e.getErrorCode();
         return new ResponseEntity<>(new ErrorResponse(errorCode.getMessage()), HttpStatus.valueOf(errorCode.getStatus()));
     }

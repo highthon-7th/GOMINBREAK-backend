@@ -6,7 +6,7 @@ import lombok.RequiredArgsConstructor;
 
 @Getter
 @RequiredArgsConstructor
-public class BusinesException extends RuntimeException{
+public class GominException extends RuntimeException{
 
     private final ErrorCode errorCode;
 }

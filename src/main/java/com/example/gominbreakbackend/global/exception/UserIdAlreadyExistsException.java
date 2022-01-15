@@ -3,12 +3,12 @@ package com.example.gominbreakbackend.global.exception;
 import com.example.gominbreakbackend.global.error.ErrorCode;
 import com.example.gominbreakbackend.global.error.exception.GominException;
 
-public class UserIdAlreadyException extends GominException {
+public class UserIdAlreadyExistsException extends GominException {
 
     public static GominException EXCEPTION =
-            new UserIdAlreadyException();
+            new UserIdAlreadyExistsException();
 
-    private UserIdAlreadyException(){
+    private UserIdAlreadyExistsException(){
         super(ErrorCode.USER_ID_ALREADY_EXISTS);
     }
 }
