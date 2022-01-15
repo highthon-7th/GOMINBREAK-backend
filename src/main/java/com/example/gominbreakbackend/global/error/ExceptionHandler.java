@@ -1,6 +1,7 @@
-package com.example.gominbreakbackend.global.error.exception;
+package com.example.gominbreakbackend.global.error;
 
 import com.example.gominbreakbackend.global.error.ErrorResponse;
+import com.example.gominbreakbackend.global.error.exception.GominBreakException;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
