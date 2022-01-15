@@ -37,6 +37,7 @@ public class AuthService {
                         .name(request.getName())
                         .school(request.getSchool())
                         .role(Role.ROLE_STUDENT)
+                        .symCounts(0)
                         .build());
     }
 
