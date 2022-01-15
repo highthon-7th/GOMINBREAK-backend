@@ -1,10 +1,13 @@
 package com.example.gominbreakbackend.domain.comment.domain;
 
 import com.example.gominbreakbackend.domain.post.domain.Post;
+import com.example.gominbreakbackend.domain.sympathy.domain.Sympathy;
 import com.example.gominbreakbackend.domain.user.domain.Member;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Builder
@@ -20,6 +23,9 @@ public class Comment {
 
     private Integer symCounts;
 
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "comment", cascade = CascadeType.REMOVE)
+    private final Set<Sympathy> sympathies = new HashSet<>();
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")
     private Member member;
@@ -28,7 +34,7 @@ public class Comment {
     @JoinColumn(name = "post_id")
     private Post post;
 
-    public Comment addSymCounts(){
+    public Comment addSymCommentCounts(){
         this.symCounts++;
         return this;
     }

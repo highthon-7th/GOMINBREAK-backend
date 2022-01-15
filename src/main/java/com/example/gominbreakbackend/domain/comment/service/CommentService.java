@@ -16,6 +16,8 @@ import com.example.gominbreakbackend.global.exception.SymAlreadyExistsException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
+
 @Service
 @RequiredArgsConstructor
 public class CommentService {
@@ -24,6 +26,7 @@ public class CommentService {
     private final PostRepository postRepository;
     private final SympathyRepository sympathyRepository;
 
+    @Transactional
     public void addComment(Integer postId, CommentRequest request){
 
         commentRepository.save(Comment.builder()
@@ -35,26 +38,23 @@ public class CommentService {
                         .build());
     }
 
+    @Transactional
     public void addSym(Integer id){
         Member member = MemberFacade.getMember();
 
-        Comment comment = commentRepository.findById(id).orElseThrow(() -> CommentNotFoundException.EXCEPTION);
+        Comment comment = commentRepository.findById(id)
+                .orElseThrow(() -> CommentNotFoundException.EXCEPTION);
 
         try {
-
-            if(member == postRepository) {
-                postRepository.findMemberById(id)
-                        .orElseThrow(() -> AuthenticationNotFoundException.EXCEPTION);
-            }
             sympathyRepository.save(
                     Sympathy.builder()
                             .member(member)
                             .comment(comment)
                             .build()
-            );
-            comment.addSymCounts();
-
-
+                );
+                comment.addSymCommentCounts();
+                comment.getMember().addSymCounts();
+                comment.getMember().getSchoolE().addSchoolSymCounts();
         } catch (GominException e){
             throw SymAlreadyExistsException.EXCEPTION;
         }
