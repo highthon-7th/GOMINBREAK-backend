@@ -18,6 +18,8 @@ public class Comment {
 
     private String commentContent;
 
+    private Integer symCounts;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")
     private Member member;
@@ -25,4 +27,9 @@ public class Comment {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "post_id")
     private Post post;
+
+    public Comment addSymCounts(){
+        this.symCounts++;
+        return this;
+    }
 }

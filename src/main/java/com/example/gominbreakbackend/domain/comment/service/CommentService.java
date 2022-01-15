@@ -4,8 +4,15 @@ import com.example.gominbreakbackend.domain.comment.domain.Comment;
 import com.example.gominbreakbackend.domain.comment.domain.repository.CommentRepository;
 import com.example.gominbreakbackend.domain.comment.presentation.dto.request.CommentRequest;
 import com.example.gominbreakbackend.domain.post.domain.repository.PostRepository;
+import com.example.gominbreakbackend.domain.sympathy.domain.Sympathy;
+import com.example.gominbreakbackend.domain.sympathy.domain.repository.SympathyRepository;
+import com.example.gominbreakbackend.domain.user.domain.Member;
 import com.example.gominbreakbackend.domain.user.facade.MemberFacade;
+import com.example.gominbreakbackend.global.error.exception.GominException;
+import com.example.gominbreakbackend.global.exception.AuthenticationNotFoundException;
+import com.example.gominbreakbackend.global.exception.CommentNotFoundException;
 import com.example.gominbreakbackend.global.exception.PostNotFoundException;
+import com.example.gominbreakbackend.global.exception.SymAlreadyExistsException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +22,7 @@ public class CommentService {
 
     private final CommentRepository commentRepository;
     private final PostRepository postRepository;
+    private final SympathyRepository sympathyRepository;
 
     public void addComment(Integer postId, CommentRequest request){
 
@@ -23,6 +31,32 @@ public class CommentService {
                         .member(MemberFacade.getMember())
                         .post(postRepository.findById(postId)
                                 .orElseThrow(() -> PostNotFoundException.EXCEPTION))
+                        .symCounts(0)
                         .build());
+    }
+
+    public void addSym(Integer id){
+        Member member = MemberFacade.getMember();
+
+        Comment comment = commentRepository.findById(id).orElseThrow(() -> CommentNotFoundException.EXCEPTION);
+
+        try {
+
+            if(member == postRepository) {
+                postRepository.findMemberById(id)
+                        .orElseThrow(() -> AuthenticationNotFoundException.EXCEPTION);
+            }
+            sympathyRepository.save(
+                    Sympathy.builder()
+                            .member(member)
+                            .comment(comment)
+                            .build()
+            );
+            comment.addSymCounts();
+
+
+        } catch (GominException e){
+            throw SymAlreadyExistsException.EXCEPTION;
+        }
     }
 }
