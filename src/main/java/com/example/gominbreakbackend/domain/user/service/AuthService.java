@@ -38,6 +38,7 @@ public class AuthService {
                         .school(request.getSchool())
                         .role(Role.ROLE_STUDENT)
                         .symCounts(0)
+                        .commentCounts(0)
                         .build());
     }
 
