@@ -14,19 +14,19 @@ spring:
     show-sql: true
 
   datasource:
-    url: ${DB_URL}
-    username: ${DB_USER}
-    password: ${DB_PASSWORD}
+    url: jdbc:mysql://gominbbushe.cqglzcfmqaha.ap-northeast-2.rds.amazonaws.com:3306/gominbreak?serverTimezone=UTC&characterEncoding=UTF-8
+    username: root
+    password: rhqmffls13!
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   redis:
-    port: ${REDIS_PORT}
-    host: ${REDIS_HOST}
+    port: 6379
+    host: localhost
 
 jwt:
-  header: ${HEADER}
-  prefix: ${PREFIX}
-  secret: ${SECRET}
+  header: Authorization
+  prefix: Bearer
+  secret: 6rOg66+867+M7IWU
   exp:
-    access: ${ACCESS}
-    refresh: ${REFRESH}
+    access: 1800000
+    refresh: 604800000
