@@ -1,6 +1,7 @@
 package com.example.gominbreakbackend.domain.post.presentation;
 
 import com.example.gominbreakbackend.domain.post.presentation.dto.request.PostRequest;
+import com.example.gominbreakbackend.domain.post.presentation.dto.response.PostDetailsResponse;
 import com.example.gominbreakbackend.domain.post.presentation.dto.response.PostResponse;
 import com.example.gominbreakbackend.domain.post.service.PostService;
 import lombok.RequiredArgsConstructor;
@@ -26,7 +27,7 @@ public class PostController {
     }
 
     @GetMapping("/{gomin-id}")
-    public PostResponse getPost(@PathVariable(name = "gomin-id") Integer id){
+    public PostDetailsResponse getPost(@PathVariable(name = "gomin-id") Integer id){
         return postService.getPost(id);
     }
 }

@@ -10,9 +10,11 @@ import java.util.List;
 @Getter
 @AllArgsConstructor
 @Builder
-public class PostResponse {
+public class PostDetailsResponse {
 
     private String title;
     private String content;
     private String name;
+
+    private List<Comment> commentContents;
 }
