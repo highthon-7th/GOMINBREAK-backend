@@ -1,6 +1,6 @@
-package com.example.gominbreakbackend.domain.entity;
+package com.example.gominbreakbackend.domain.user.domain;
 
-import com.example.gominbreakbackend.domain.entity.types.Role;
+import com.example.gominbreakbackend.domain.user.domain.types.Role;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
