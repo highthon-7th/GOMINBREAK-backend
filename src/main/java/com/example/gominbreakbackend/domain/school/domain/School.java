@@ -20,4 +20,11 @@ public class School {
     private Integer id;
 
     private String schoolName;
+
+    private Integer symCounts;
+
+    public School addSchoolSymCounts(){
+        this.symCounts++;
+        return this;
+    }
 }
