@@ -1,10 +1,10 @@
 package com.example.gominbreakbackend.domain.post.domain;
 
+import com.example.gominbreakbackend.domain.comment.domain.Comment;
 import lombok.*;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
+import javax.persistence.*;
+import java.util.List;
 
 @Getter
 @AllArgsConstructor
@@ -19,4 +19,7 @@ public class Post {
     private String title;
 
     private String content;
+
+    @OneToMany(mappedBy = "post", cascade = CascadeType.REMOVE)
+    private List<Comment> comment;
 }
