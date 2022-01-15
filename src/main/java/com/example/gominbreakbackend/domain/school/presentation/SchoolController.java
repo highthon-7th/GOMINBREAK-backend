@@ -1,6 +1,7 @@
 package com.example.gominbreakbackend.domain.school.presentation;
 
 import com.example.gominbreakbackend.domain.school.domain.School;
+import com.example.gominbreakbackend.domain.school.presentation.dto.SchoolResponse;
 import com.example.gominbreakbackend.domain.school.service.SchoolService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
@@ -17,7 +18,7 @@ public class SchoolController {
     private final SchoolService schoolService;
 
     @GetMapping("/search")
-    public List<School> searchSchool(@RequestParam(name = "school") String school, Pageable pageable){
+    public List<SchoolResponse> searchSchool(@RequestParam(name = "school") String school, Pageable pageable){
         return schoolService.searchSchool(school, pageable);
     }
 }

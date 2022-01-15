@@ -21,6 +21,8 @@ public class School {
 
     private String schoolName;
 
+    private String location;
+
     private Integer symCounts;
 
     public School addSchoolSymCounts(){
