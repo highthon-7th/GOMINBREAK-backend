@@ -12,6 +12,7 @@ import java.util.List;
 @Builder
 public class PostDetailsResponse {
 
+    private Integer id;
     private String title;
     private String content;
     private String name;

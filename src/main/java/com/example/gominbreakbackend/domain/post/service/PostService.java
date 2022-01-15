@@ -1,5 +1,6 @@
 package com.example.gominbreakbackend.domain.post.service;
 
+import com.example.gominbreakbackend.domain.comment.domain.repository.CommentRepository;
 import com.example.gominbreakbackend.domain.post.domain.Post;
 import com.example.gominbreakbackend.domain.post.domain.repository.PostRepository;
 import com.example.gominbreakbackend.domain.post.presentation.dto.request.PostRequest;
@@ -19,6 +20,7 @@ import java.util.stream.Collectors;
 public class PostService {
 
     private final PostRepository postRepository;
+    private final CommentRepository commentRepository;
 
     public void createPost(PostRequest request){
         postRepository.save(Post.builder()
@@ -44,10 +46,18 @@ public class PostService {
         return postRepository.findById(id)
                 .map(post -> {
                     PostDetailsResponse postDetailsResponse = PostDetailsResponse.builder()
+                            .id(post.getId())
                             .title(post.getTitle())
                             .content(post.getContent())
                             .name(post.getMember().getName())
-                            .commentContents(post.getCommentContents())
+                            .commentContents(commentRepository.findByPostId(id)
+                                    .stream()
+                                    .map(comment -> {
+                                        comment.getId();
+                                        comment.getMember().getName();
+                                    return comment;
+                                    }).collect(Collectors.toList())
+                            )
                             .build();
                     return postDetailsResponse;
                 })
