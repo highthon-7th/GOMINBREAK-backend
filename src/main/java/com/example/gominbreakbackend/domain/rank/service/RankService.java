@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -17,10 +18,29 @@ public class RankService {
     private final SchoolRepository schoolRepository;
 
     public List<RankMemberResponse> memberRank(){
-        return null;
+        return memberRepository.findBySymRank()
+                .stream()
+                .map(member -> {
+                    RankMemberResponse response = RankMemberResponse.builder()
+                            .name(member.getName())
+                            .school(member.getSchool())
+                            .symCounts(member.getSymCounts())
+                            .build();
+                    return response;
+                })
+                .collect(Collectors.toList());
     }
 
     public List<RankSchoolResponse> schoolRank(){
-        return null;
+        return schoolRepository.findBySymRank()
+                .stream()
+                .map(school -> {
+                    RankSchoolResponse response = RankSchoolResponse.builder()
+                            .schoolName(school.getSchoolName())
+                            .symCounts(school.getSymCounts())
+                            .build();
+                    return response;
+                })
+                .collect(Collectors.toList());
     }
 }
