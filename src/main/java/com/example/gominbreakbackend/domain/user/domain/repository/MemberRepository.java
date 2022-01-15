@@ -12,4 +12,6 @@ public interface MemberRepository extends JpaRepository<Member, Integer> {
 
     @Query(value = "select * from tbl_member order by symCounts desc", nativeQuery = true)
     List<Member> findBySymRank();
+
+    Integer countByCommentCounts(Integer id);
 }
