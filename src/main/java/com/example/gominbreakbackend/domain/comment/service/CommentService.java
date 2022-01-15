@@ -14,7 +14,7 @@ public class CommentService {
 
     public void createComment(CommentRequest request){
         commentRepository.save(Comment.builder()
-                        .comment(request.getComment())
+                        .commentContent(request.getCommentContent())
                         .build());
     }
 }
