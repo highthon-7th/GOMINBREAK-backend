@@ -10,7 +10,7 @@ import java.util.Optional;
 public interface MemberRepository extends JpaRepository<Member, Integer> {
     Optional<Member> findByUsername(String username);
 
-    @Query(value = "select * from tbl_member order by symCounts desc", nativeQuery = true)
+    @Query(value = "select * from tbl_member order by sym_counts desc", nativeQuery = true)
     List<Member> findBySymRank();
 
     Integer countByCommentCounts(Integer id);

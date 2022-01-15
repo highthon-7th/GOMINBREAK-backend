@@ -1,5 +1,6 @@
 package com.example.gominbreakbackend.domain.user.domain;
 
+import com.example.gominbreakbackend.domain.comment.domain.Comment;
 import com.example.gominbreakbackend.domain.school.domain.School;
 import com.example.gominbreakbackend.domain.user.domain.types.Role;
 import lombok.*;
@@ -10,6 +11,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
 
 @Getter
 @AllArgsConstructor
@@ -37,6 +39,9 @@ public class Member implements UserDetails {
 
     private Integer symCounts;
     private Integer commentCounts;
+
+    @OneToMany(mappedBy = "member", fetch = FetchType.LAZY)
+    private List<Comment> comments;
 
     public Member addSymCounts(){
         this.symCounts++;
