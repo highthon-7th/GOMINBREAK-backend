@@ -4,6 +4,8 @@ import com.example.gominbreakbackend.domain.comment.domain.Comment;
 import com.example.gominbreakbackend.domain.comment.domain.repository.CommentRepository;
 import com.example.gominbreakbackend.domain.comment.presentation.dto.request.CommentRequest;
 import com.example.gominbreakbackend.domain.post.domain.repository.PostRepository;
+import com.example.gominbreakbackend.domain.school.domain.School;
+import com.example.gominbreakbackend.domain.school.domain.repository.SchoolRepository;
 import com.example.gominbreakbackend.domain.sympathy.domain.Sympathy;
 import com.example.gominbreakbackend.domain.sympathy.domain.repository.SympathyRepository;
 import com.example.gominbreakbackend.domain.user.domain.Member;
@@ -25,6 +27,7 @@ public class CommentService {
     private final CommentRepository commentRepository;
     private final PostRepository postRepository;
     private final SympathyRepository sympathyRepository;
+    private final SchoolRepository schoolRepository;
 
     @Transactional
     public void addComment(Integer postId, CommentRequest request){
@@ -36,6 +39,7 @@ public class CommentService {
                                 .orElseThrow(() -> PostNotFoundException.EXCEPTION))
                         .symCounts(0)
                         .build());
+
     }
 
     @Transactional
@@ -54,7 +58,6 @@ public class CommentService {
                 );
                 comment.addSymCommentCounts();
                 comment.getMember().addSymCounts();
-                comment.getMember().getSchoolE().addSchoolSymCounts();
         } catch (GominException e){
             throw SymAlreadyExistsException.EXCEPTION;
         }
