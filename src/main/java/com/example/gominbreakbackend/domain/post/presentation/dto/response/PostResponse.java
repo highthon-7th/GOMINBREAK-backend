@@ -12,7 +12,5 @@ import java.util.List;
 @Builder
 public class PostResponse {
 
-    private String title;
-    private String content;
-    private String name;
+    private Integer id;
 }

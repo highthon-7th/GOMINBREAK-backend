@@ -33,9 +33,7 @@ public class PostService {
                 .stream()
                 .map(post -> {
                     PostResponse response = PostResponse.builder()
-                            .title(post.getTitle())
-                            .content(post.getContent())
-                            .name(post.getMember().getName())
+                            .id(post.getId())
                             .build();
                     return response;
                 })

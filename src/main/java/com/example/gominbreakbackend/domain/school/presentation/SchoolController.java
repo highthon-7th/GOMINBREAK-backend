@@ -1,6 +1,5 @@
 package com.example.gominbreakbackend.domain.school.presentation;
 
-import com.example.gominbreakbackend.domain.school.domain.School;
 import com.example.gominbreakbackend.domain.school.presentation.dto.SchoolResponse;
 import com.example.gominbreakbackend.domain.school.service.SchoolService;
 import lombok.RequiredArgsConstructor;
