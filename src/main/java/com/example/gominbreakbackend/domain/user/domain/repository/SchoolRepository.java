@@ -1,6 +1,6 @@
-package com.example.gominbreakbackend.domain.entity.repository;
+package com.example.gominbreakbackend.domain.user.domain.repository;
 
-import com.example.gominbreakbackend.domain.entity.School;
+import com.example.gominbreakbackend.domain.user.domain.School;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.awt.print.Pageable;

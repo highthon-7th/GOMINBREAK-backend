@@ -1,13 +1,13 @@
-package com.example.gominbreakbackend.domain.service;
+package com.example.gominbreakbackend.domain.user.service;
 
-import com.example.gominbreakbackend.domain.entity.Member;
-import com.example.gominbreakbackend.domain.entity.RefreshToken;
-import com.example.gominbreakbackend.domain.entity.repository.MemberRepository;
-import com.example.gominbreakbackend.domain.entity.repository.RefreshTokenRepository;
-import com.example.gominbreakbackend.domain.entity.types.Role;
-import com.example.gominbreakbackend.domain.presentation.dto.request.LoginRequest;
-import com.example.gominbreakbackend.domain.presentation.dto.request.RegisterRequest;
-import com.example.gominbreakbackend.domain.presentation.dto.response.TokenResponse;
+import com.example.gominbreakbackend.domain.user.domain.Member;
+import com.example.gominbreakbackend.domain.user.domain.RefreshToken;
+import com.example.gominbreakbackend.domain.user.domain.repository.MemberRepository;
+import com.example.gominbreakbackend.domain.user.domain.repository.RefreshTokenRepository;
+import com.example.gominbreakbackend.domain.user.domain.types.Role;
+import com.example.gominbreakbackend.domain.user.presentation.dto.request.LoginRequest;
+import com.example.gominbreakbackend.domain.user.presentation.dto.request.RegisterRequest;
+import com.example.gominbreakbackend.domain.user.presentation.dto.response.TokenResponse;
 import com.example.gominbreakbackend.global.exception.*;
 import com.example.gominbreakbackend.global.security.jwt.JwtTokenProvider;
 import lombok.RequiredArgsConstructor;

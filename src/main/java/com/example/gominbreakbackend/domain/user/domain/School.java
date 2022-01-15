@@ -1,4 +1,4 @@
-package com.example.gominbreakbackend.domain.entity;
+package com.example.gominbreakbackend.domain.user.domain;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;

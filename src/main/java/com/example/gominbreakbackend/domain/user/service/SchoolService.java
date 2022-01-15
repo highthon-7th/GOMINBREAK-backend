@@ -1,7 +1,7 @@
-package com.example.gominbreakbackend.domain.service;
+package com.example.gominbreakbackend.domain.user.service;
 
-import com.example.gominbreakbackend.domain.entity.School;
-import com.example.gominbreakbackend.domain.entity.repository.SchoolRepository;
+import com.example.gominbreakbackend.domain.user.domain.School;
+import com.example.gominbreakbackend.domain.user.domain.repository.SchoolRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

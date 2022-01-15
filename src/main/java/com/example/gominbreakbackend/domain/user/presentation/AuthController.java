@@ -1,9 +1,9 @@
-package com.example.gominbreakbackend.domain.presentation;
+package com.example.gominbreakbackend.domain.user.presentation;
 
-import com.example.gominbreakbackend.domain.presentation.dto.request.LoginRequest;
-import com.example.gominbreakbackend.domain.presentation.dto.request.RegisterRequest;
-import com.example.gominbreakbackend.domain.presentation.dto.response.TokenResponse;
-import com.example.gominbreakbackend.domain.service.AuthService;
+import com.example.gominbreakbackend.domain.user.presentation.dto.request.LoginRequest;
+import com.example.gominbreakbackend.domain.user.presentation.dto.request.RegisterRequest;
+import com.example.gominbreakbackend.domain.user.presentation.dto.response.TokenResponse;
+import com.example.gominbreakbackend.domain.user.service.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

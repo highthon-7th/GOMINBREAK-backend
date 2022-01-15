@@ -1,7 +1,7 @@
-package com.example.gominbreakbackend.domain.presentation;
+package com.example.gominbreakbackend.domain.user.presentation;
 
-import com.example.gominbreakbackend.domain.entity.School;
-import com.example.gominbreakbackend.domain.service.SchoolService;
+import com.example.gominbreakbackend.domain.user.domain.School;
+import com.example.gominbreakbackend.domain.user.service.SchoolService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;

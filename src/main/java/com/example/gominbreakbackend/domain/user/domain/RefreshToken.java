@@ -1,4 +1,4 @@
-package com.example.gominbreakbackend.domain.entity;
+package com.example.gominbreakbackend.domain.user.domain;
 
 import lombok.*;
 import org.springframework.data.annotation.Id;
@@ -6,8 +6,6 @@ import org.springframework.data.redis.core.RedisHash;
 import org.springframework.data.redis.core.TimeToLive;
 import org.springframework.data.redis.core.index.Indexed;
 
-import javax.annotation.security.DenyAll;
-import javax.persistence.Entity;
 import java.io.Serializable;
 
 @Getter

@@ -1,6 +1,6 @@
-package com.example.gominbreakbackend.domain.entity.repository;
+package com.example.gominbreakbackend.domain.user.domain.repository;
 
-import com.example.gominbreakbackend.domain.entity.RefreshToken;
+import com.example.gominbreakbackend.domain.user.domain.RefreshToken;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.Optional;

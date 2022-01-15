@@ -1,6 +1,6 @@
 package com.example.gominbreakbackend.global.security.auth;
 
-import com.example.gominbreakbackend.domain.entity.repository.MemberRepository;
+import com.example.gominbreakbackend.domain.user.domain.repository.MemberRepository;
 import com.example.gominbreakbackend.global.exception.UserNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
