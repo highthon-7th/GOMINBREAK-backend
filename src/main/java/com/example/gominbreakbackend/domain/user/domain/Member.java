@@ -1,5 +1,6 @@
 package com.example.gominbreakbackend.domain.user.domain;
 
+import com.example.gominbreakbackend.domain.school.domain.School;
 import com.example.gominbreakbackend.domain.user.domain.types.Role;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
@@ -28,8 +29,18 @@ public class Member implements UserDetails {
 
     private String school;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    private School schoolE;
+
     @Enumerated(value = EnumType.STRING)
     private Role role;
+
+    private Integer symCounts;
+
+    public Member addSymCounts(){
+        this.symCounts++;
+        return this;
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
