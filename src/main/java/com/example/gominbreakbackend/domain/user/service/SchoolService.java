@@ -15,6 +15,6 @@ public class SchoolService {
     private final SchoolRepository schoolRepository;
 
     public List<School> searchSchool(String school, Pageable pageable){
-        return
+        return schoolRepository.findBySchoolNameContaining(school, pageable);
     }
 }
