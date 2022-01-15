@@ -1,11 +1,11 @@
 package com.example.gominbreakbackend.domain.presentation;
 
+import com.example.gominbreakbackend.domain.presentation.dto.request.LoginRequest;
 import com.example.gominbreakbackend.domain.presentation.dto.request.RegisterRequest;
+import com.example.gominbreakbackend.domain.presentation.dto.response.TokenResponse;
 import com.example.gominbreakbackend.domain.service.AuthService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -18,5 +18,15 @@ public class AuthController {
     @PostMapping("/register")
     public void register(@RequestBody @Valid RegisterRequest request){
         authService.register(request);
+    }
+
+    @PostMapping("/login")
+    public TokenResponse login(@RequestBody @Valid LoginRequest request){
+        return authService.login(request);
+    }
+
+    @PutMapping("/reissue")
+    public TokenResponse reissue(@RequestHeader(name = "x-refresh-token") String token){
+        return authService.reissue(token);
     }
 }
